@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucrecia Battiato | Psicóloga Infantil y Familiar - Palermo, CABA</title>
+<meta name="description" content="Psicóloga infantil y familiar en Palermo, CABA. Atención a niños, adolescentes y adultos. Thames 2485. Tel: 011 6447-6800. 5.0 estrellas en Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #7a9e87;
+    --sage-light: #a8c4b0;
+    --sage-pale: #eef4f0;
+    --rose: #c97d7d;
+    --rose-pale: #f7efef;
+    --cream: #faf7f2;
+    --cream-mid: #f0ebe0;
+    --warm-white: #fffef9;
+    --text: #2a2520;
+    --text-mid: #5a5248;
+    --text-light: #9a9088;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--text);
+    background: var(--warm-white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,247,242,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-mid);
+    padding: 0 60px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled { box-shadow: 0 2px 20px rgba(42,37,32,0.07); }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 400;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .nav-links a:hover { color: var(--sage); }
+
+  .btn-nav {
+    background: var(--sage) !important;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-nav:hover { background: var(--sage-light) !important; transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    padding-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--cream);
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative circles */
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 60px solid rgba(122,158,135,0.08);
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(201,125,125,0.05);
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sage);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--sage);
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.35s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.45s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 420px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.55s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-cta-wrap {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 36px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--sage-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(122,158,135,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border: 1.5px solid var(--cream-mid);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--sage);
+    color: var(--sage);
+    transform: translateY(-2px);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.85s forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  .hero-meta-item svg { color: var(--sage); flex-shrink: 0; }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--sage-pale);
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+  }
+
+  .hero-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(234,240,236,0.4));
+  }
+
+  .hero-rating-badge {
+    position: absolute;
+    bottom: 36px;
+    left: -20px;
+    background: white;
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 40px rgba(42,37,32,0.12);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .rating-circle {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rating-circle .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sage);
+    line-height: 1;
+  }
+
+  .rating-circle .star { font-size: 0.65rem; color: #f59e0b; }
+
+  .rating-text .top {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .rating-text .bot {
+    font-size: 0.75rem;
+    color: var(--text-light);
+  }
+
+  /* ─── ESPECIALIDADES ─── */
+  #especialidades {
+    background: var(--warm-white);
+    padding: 100px 60px;
+  }
+
+  .esp-header { text-align: center; margin-bottom: 60px; }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .section-tag::before,
+  .section-tag::after {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--sage-light);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.15;
+  }
+
+  .section-title em { font-style: italic; color: var(--sage); }
+
+  .esp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .esp-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 36px 30px;
+    text-align: center;
+    border: 1px solid var(--cream-mid);
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .esp-card:hover {
+    box-shadow: 0 12px 40px rgba(122,158,135,0.12);
+    transform: translateY(-6px) !important;
+    border-color: var(--sage-light);
+  }
+
+  .esp-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 20px;
+    transition: background 0.3s;
+  }
+
+  .esp-card:hover .esp-icon { background: var(--sage-light); }
+
+  .esp-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .esp-desc {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── SOBRE MÍ ─── */
+  #sobre-mi {
+    background: var(--sage-pale);
+    padding: 100px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #sobre-mi::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 80px solid rgba(122,158,135,0.08);
+  }
+
+  .sobre-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sobre-img-wrap {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+
+  .sobre-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sobre-img-deco {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--rose-pale);
+    border: 6px solid var(--warm-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+
+  .sobre-content p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 18px;
+  }
+
+  .sobre-valores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .valor-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    font-weight: 400;
+  }
+
+  .valor-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+
+  /* ─── PROCESO ─── */
+  #proceso {
+    background: var(--warm-white);
+    padding: 100px 60px;
+  }
+
+  .proceso-header { text-align: center; margin-bottom: 60px; }
+
+  .proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .proceso-steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 1px;
+    background: var(--cream-mid);
+    z-index: 0;
+  }
+
+  .paso {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  .paso-num {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--sage-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sage);
+    margin: 0 auto 20px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .paso:hover .paso-num {
+    background: var(--sage);
+    color: white;
+    border-color: var(--sage);
+  }
+
+  .paso-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .paso-desc {
+    font-size: 0.83rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ─── RESEÑAS ─── */
+  #resenas {
+    background: var(--cream);
+    padding: 100px 60px;
+  }
+
+  .resenas-header { text-align: center; margin-bottom: 16px; }
+
+  .rating-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0 56px;
+  }
+
+  .rating-big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--sage);
+    line-height: 1;
+  }
+
+  .rating-stars-col { display: flex; flex-direction: column; gap: 4px; }
+  .stars-row { color: #f59e0b; font-size: 1.2rem; letter-spacing: 3px; }
+  .stars-count { font-size: 0.82rem; color: var(--text-light); }
+
+  .resenas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .resena-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--cream-mid);
+    transition: box-shadow 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  .resena-card:hover {
+    box-shadow: 0 10px 36px rgba(122,158,135,0.1);
+    transform: translateY(-4px) !important;
+  }
+
+  .resena-stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 2px; }
+
+  .resena-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .resena-author {
+    font-weight: 500;
+    font-size: 0.83rem;
+    color: var(--sage);
+  }
+
+  .resena-date {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  /* ─── FAQ ─── */
+  #faq {
+    background: var(--warm-white);
+    padding: 100px 60px;
+  }
+
+  .faq-header { text-align: center; margin-bottom: 50px; }
+
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faq-item {
+    background: var(--cream);
+    border-radius: 14px;
+    border: 1.5px solid transparent;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .faq-item.open {
+    border-color: var(--sage-light);
+    box-shadow: 0 4px 20px rgba(122,158,135,0.1);
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--text);
+    text-align: left;
+    gap: 16px;
+  }
+
+  .faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--sage); }
+  .faq-item.open .faq-q svg { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s;
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    padding: 0 24px;
+    font-weight: 300;
+  }
+
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+  /* ─── CTA FINAL ─── */
+  #cta-final {
+    background: var(--sage);
+    padding: 120px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta-final::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 100px solid rgba(255,255,255,0.06);
+  }
+
+  #cta-final::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  #cta-final h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  #cta-final h2 em { font-style: italic; color: rgba(255,255,255,0.75); }
+
+  #cta-final p {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    margin-bottom: 44px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .cta-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: white;
+    color: var(--sage);
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-white:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 0.92rem;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .btn-outline-white:hover { border-color: white; transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #1e2e26;
+    padding: 60px 60px 28px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2px;
+  }
+
+  .footer-logo-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage-light);
+    margin-bottom: 16px;
+  }
+
+  .footer-desc { font-size: 0.84rem; line-height: 1.7; margin-bottom: 20px; font-weight: 300; }
+
+  .footer-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .footer-info-item svg { color: var(--sage-light); margin-top: 2px; flex-shrink: 0; }
+
+  .footer-col-title {
+    font-weight: 500;
+    color: white;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--sage-light); }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.77rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ─── WHATSAPP ─── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 500;
+    background: #25D366;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+    animation: pulse-wa 2.5s infinite;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+
+  .whatsapp-float:hover { transform: scale(1.1); animation: none; }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ─── ANIMACIONES ─── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.8), 0 0 0 8px rgba(37,211,102,0.1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.1s; }
+  .d2 { transition-delay: 0.2s; }
+  .d3 { transition-delay: 0.3s; }
+  .d4 { transition-delay: 0.4s; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 50px 24px 60px; }
+    .hero-right { height: 320px; }
+    .hero-rating-badge { left: 16px; }
+    #especialidades, #sobre-mi, #proceso, #resenas, #faq, #cta-final { padding: 70px 20px; }
+    .esp-grid { grid-template-columns: 1fr; }
+    .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+    .proceso-steps { grid-template-columns: 1fr 1fr; }
+    .proceso-steps::before { display: none; }
+    .resenas-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 30px; }
+    footer { padding: 40px 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="nav-logo-name">Lic. Lucrecia Battiato</span>
+    <span class="nav-logo-title">Psicóloga · M.N. 12345</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/5491164476800?text=Hola! Quiero consultar sobre turnos" class="btn-nav" target="_blank">Pedir turno</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Psicología Infantil y Familiar</div>
+    <h1 class="hero-title">Un espacio seguro<br>para <em>crecer</em></h1>
+    <p class="hero-name">Lic. Lucrecia Battiato</p>
+    <p class="hero-desc">Acompañamiento psicológico para niños, adolescentes y familias. Un espacio cálido, empático y profesional donde cada historia importa.</p>
+    <div class="hero-cta-wrap">
+      <a href="https://wa.me/5491164476800?text=Hola! Quiero pedir un turno" class="btn-primary" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.06 23.03c-.111.383.245.74.628.629l5.24-1.473A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.99 0-3.852-.582-5.42-1.585l-.387-.243-4.016 1.128 1.13-4.013-.252-.398A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Pedir turno
+      </a>
+      <a href="tel:01164476800" class="btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Llamar
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Thames 2485 13H, Palermo, CABA
+      </div>
+      <div class="hero-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Lun–Vie 8:00–20:00 hs · Presencial y online
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&q=80" alt="Lucrecia Battiato Psicóloga">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-rating-badge">
+      <div class="rating-circle">
+        <span class="num">5.0</span>
+        <span class="star">★</span>
+      </div>
+      <div class="rating-text">
+        <div class="top">Reseñas de Google</div>
+        <div class="bot">17 opiniones · Puntaje perfecto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="esp-header">
+    <p class="section-tag reveal">Lo que trabajo</p>
+    <h2 class="section-title reveal d1">Especialidades</h2>
+  </div>
+
+  <div class="esp-grid">
+    <div class="esp-card reveal">
+      <div class="esp-icon">🧸</div>
+      <div class="esp-name">Psicología Infantil</div>
+      <div class="esp-desc">Acompañamiento terapéutico para niños desde los primeros años. Abordaje lúdico, creativo y adaptado a cada etapa del desarrollo.</div>
+    </div>
+    <div class="esp-card reveal d1">
+      <div class="esp-icon">🌱</div>
+      <div class="esp-name">Adolescentes</div>
+      <div class="esp-desc">Espacio de escucha y acompañamiento para la etapa adolescente. Identidad, vínculos, emociones y desafíos del crecimiento.</div>
+    </div>
+    <div class="esp-card reveal d2">
+      <div class="esp-icon">👨‍👩‍👧</div>
+      <div class="esp-name">Orientación Familiar</div>
+      <div class="esp-desc">Trabajo conjunto con padres y familias para fortalecer vínculos y acompañar el desarrollo saludable de los hijos.</div>
+    </div>
+    <div class="esp-card reveal d1">
+      <div class="esp-icon">🧩</div>
+      <div class="esp-name">TEA y Neurodiversidad</div>
+      <div class="esp-desc">Acompañamiento especializado para niños y familias con diagnósticos de TEA, TDAH y otras condiciones de neurodiversidad.</div>
+    </div>
+    <div class="esp-card reveal d2">
+      <div class="esp-icon">💻</div>
+      <div class="esp-name">Sesiones Online</div>
+      <div class="esp-desc">Atención por videollamada para familias que no pueden asistir de forma presencial. Misma calidad y calidez.</div>
+    </div>
+    <div class="esp-card reveal d3">
+      <div class="esp-icon">🫂</div>
+      <div class="esp-name">Adultos</div>
+      <div class="esp-desc">Espacio terapéutico individual para adultos que buscan un proceso de autoconocimiento, cambio y bienestar emocional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="sobre-inner">
+    <div class="sobre-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Consultorio Lucrecia Battiato">
+      <div class="sobre-img-deco">💚</div>
+    </div>
+
+    <div class="sobre-content">
+      <p class="section-tag reveal" style="justify-content:flex-start;">Sobre mí</p>
+      <h2 class="section-title reveal d1">Una profesional <em>comprometida</em> con cada familia</h2>
+
+      <div style="margin-top: 24px;">
+        <p class="reveal d2">Soy Lucrecia Battiato, psicóloga especializada en infancia, adolescencia y familia. Mi enfoque combina el rigor profesional con la calidez humana que cada consulta necesita.</p>
+        <p class="reveal d2">Trabajo con un equipo hermoso de profesionales y ofrezco un espacio cálido, lindo y cómodo donde cada persona puede sentirse escuchada y acompañada genuinamente.</p>
+        <p class="reveal d3">Creo profundamente en el potencial de cada niño y cada familia. Mi compromiso es estar presente, ser empática y brindar las herramientas necesarias para el bienestar emocional.</p>
+      </div>
+
+      <div class="sobre-valores reveal d3">
+        <div class="valor-item"><div class="valor-dot"></div> Escucha activa</div>
+        <div class="valor-item"><div class="valor-dot"></div> Empatía genuina</div>
+        <div class="valor-item"><div class="valor-dot"></div> Abordaje lúdico</div>
+        <div class="valor-item"><div class="valor-dot"></div> Enfoque familiar</div>
+        <div class="valor-item"><div class="valor-dot"></div> Ética profesional</div>
+        <div class="valor-item"><div class="valor-dot"></div> Trabajo en equipo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="proceso-header">
+    <p class="section-tag reveal">Cómo empezamos</p>
+    <h2 class="section-title reveal d1">El proceso de <em>inicio</em></h2>
+  </div>
+
+  <div class="proceso-steps">
+    <div class="paso reveal">
+      <div class="paso-num">1</div>
+      <div class="paso-title">Primer contacto</div>
+      <div class="paso-desc">Escribís por WhatsApp o llamás para consultar disponibilidad y coordinar el primer encuentro.</div>
+    </div>
+    <div class="paso reveal d1">
+      <div class="paso-num">2</div>
+      <div class="paso-title">Entrevista inicial</div>
+      <div class="paso-desc">Una reunión de conocimiento donde contás la situación y evaluamos juntos si hay vínculo terapéutico.</div>
+    </div>
+    <div class="paso reveal d2">
+      <div class="paso-num">3</div>
+      <div class="paso-title">Diagnóstico</div>
+      <div class="paso-desc">Evaluación integral de la situación para diseñar el mejor abordaje para cada caso.</div>
+    </div>
+    <div class="paso reveal d3">
+      <div class="paso-num">4</div>
+      <div class="paso-title">Acompañamiento</div>
+      <div class="paso-desc">Inicio del proceso terapéutico con seguimiento continuo y orientación a la familia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas">
+  <div class="resenas-header">
+    <p class="section-tag reveal">Testimonios</p>
+    <h2 class="section-title reveal d1">Lo que dicen las familias</h2>
+  </div>
+  <div class="rating-showcase reveal d2">
+    <div class="rating-big-num">5.0</div>
+    <div class="rating-stars-col">
+      <div class="stars-row">★★★★★</div>
+      <div class="stars-count">17 reseñas · Puntaje perfecto en Google</div>
+    </div>
+  </div>
+
+  <div class="resenas-grid">
+    <div class="resena-card reveal">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Excelente ser humano y profesional. Me ayudó muchísimo con mi hijo con TEA y me acompañó hasta mi casa porque la situación era inmanejable. Mil gracias Lucre."</p>
+      <div class="resena-author">Carolina Bernstein</div>
+      <div class="resena-date">Hace un mes · Google</div>
+    </div>
+    <div class="resena-card reveal d1">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Lucre es una excelente profesional respetuosa y formada con amplia variedad de recursos. Confiable, responsable y coordina un equipo hermoso."</p>
+      <div class="resena-author">Sole Palermo Soho</div>
+      <div class="resena-date">Hace 11 meses · Google</div>
+    </div>
+    <div class="resena-card reveal d2">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Le agradezco profundamente. Nos acompaña desde hace años con una calidez y profesionalismo admirables. Comprometida, empática y muy humana."</p>
+      <div class="resena-author">Jesica Lopez</div>
+      <div class="resena-date">Hace 11 meses · Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-header">
+    <p class="section-tag reveal">Dudas frecuentes</p>
+    <h2 class="section-title reveal d1">Preguntas <em>frecuentes</em></h2>
+  </div>
+
+  <div class="faq-list reveal d2">
+    <div class="faq-item">
+      <button class="faq-q">¿A partir de qué edad trabajás con niños?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Trabajo con niños desde los 3 años en adelante, adolescentes y adultos. Cada etapa tiene su abordaje específico.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Hacen sesiones online?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Sí, ofrecemos sesiones por videollamada para quienes no pueden asistir de forma presencial. La calidad del acompañamiento es la misma.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Trabajan con obras sociales o prepagas?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Consultanos directamente por WhatsApp sobre cobertura. Trabajamos con varias obras sociales y prepagas.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Los padres participan de las sesiones?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Según el caso y la edad del paciente, se realizan entrevistas de orientación familiar periódicas. La participación de los padres es parte fundamental del proceso.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Dónde está el consultorio?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">El consultorio está en Thames 2485, piso 13 H, Palermo, CABA. Es un espacio cálido, lindo y cómodo pensado para el bienestar de los pacientes.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Cómo pido un turno?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Podés escribirnos por WhatsApp o llamarnos al 011 6447-6800. Respondemos a la brevedad para coordinar el primer encuentro.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <h2 class="reveal">¿Querés empezar<br>un <em>proceso terapéutico</em>?</h2>
+  <p class="reveal d1">Escribinos sin compromiso. El primer paso siempre es el más importante, y estamos acá para acompañarte desde el primer momento.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5491164476800?text=Hola Lucrecia! Quiero consultar sobre turnos" class="btn-white reveal d2" target="_blank">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.06 23.03c-.111.383.245.74.628.629l5.24-1.473A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.99 0-3.852-.582-5.42-1.585l-.387-.243-4.016 1.128 1.13-4.013-.252-.398A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Pedir turno por WhatsApp
+    </a>
+    <a href="tel:01164476800" class="btn-outline-white reveal d3">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      011 6447-6800
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-name">Lic. Lucrecia Battiato</div>
+      <div class="footer-logo-title">Psicóloga Infantil y Familiar</div>
+      <p class="footer-desc">Acompañamiento psicológico para niños, adolescentes y familias en Palermo, CABA. Presencial y online.</p>
+      <div class="footer-info-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Thames 2485 13H, Palermo, CABA
+      </div>
+      <div class="footer-info-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8 19.79 19.79 0 01.09 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        011 6447-6800
+      </div>
+      <div class="footer-info-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Lun–Vie 8:00–20:00 hs
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Especialidades</div>
+      <ul class="footer-links">
+        <li><a href="#">Psicología Infantil</a></li>
+        <li><a href="#">Adolescentes</a></li>
+        <li><a href="#">Orientación Familiar</a></li>
+        <li><a href="#">TEA y Neurodiversidad</a></li>
+        <li><a href="#">Sesiones Online</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Consultas</div>
+      <ul class="footer-links">
+        <li><a href="#sobre-mi">Sobre Lucrecia</a></li>
+        <li><a href="#proceso">Cómo empezar</a></li>
+        <li><a href="#resenas">Testimonios</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+        <li><a href="https://wa.me/5491164476800" target="_blank">Pedir turno</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Lic. Lucrecia Battiato · Psicóloga M.N. 12345 · Thames 2485, Palermo, CABA</div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5491164476800?text=Hola Lucrecia! Quiero consultar sobre turnos" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.06 23.03c-.111.383.245.74.628.629l5.24-1.473A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.99 0-3.852-.582-5.42-1.585l-.387-.243-4.016 1.128 1.13-4.013-.252-.398A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+
+  // Cards stagger
+  ['esp-card','resena-card'].forEach(cls => {
+    const cards = document.querySelectorAll('.' + cls);
+    const co = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.transition = 'opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s, transform 0.3s';
+          }, i * 90);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(c => co.observe(c));
+  });
+
+  // Pasos stagger
+  document.querySelectorAll('.paso').forEach((el, i) => {
+    const po = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+          }, i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    po.observe(el);
+  });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
